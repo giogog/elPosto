@@ -1,4 +1,6 @@
 ﻿using API.Dtos;
+using DapperLibrary.DataAccess;
+using GeneralLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -7,14 +9,22 @@ namespace API.Controllers
     [Route("api/{controller}")]
     public class OperatorController:ControllerBase
     {
-        [HttpPost]
-        [Route("add-package")]
-        public async Task<ActionResult> AddPackage([FromBody]PackageRegisterDto packageRegisterDto)
+        private readonly IDbAccess _access;
+
+        public OperatorController(IDbAccess access)
+        {
+            _access = access;
+        }
+
+
+        [HttpGet]
+        [Route("add-package/{id}")]
+        public async Task<ActionResult> AddPackage([FromQuery]int id)
         {
 
-            
+            var result = await _access.LoadDataProcedure<User ,dynamic>("getUser",new { Id = id });
 
-            return Ok(packageRegisterDto);
+            return Ok(result.FirstOrDefault());
         }
     }
 }

@@ -8,6 +8,6 @@ namespace GeneralLibrary.Models;
 
 public class PackageType
 {
-    public int Id { get; set; } 
-    public
+    public int Id { get; set; }
+    public string Type { get; set; }
 }

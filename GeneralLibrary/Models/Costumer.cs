@@ -18,7 +18,7 @@ public class Costumer
         set
         {
             // Check if the value contains only numbers
-            _personalId = CheckNumerialsExtension.CheckNumerials(value);
+            _personalId = value.CheckNumerials();
         }
     }
     public ICollection<CostumerAddresses> CostumerAddresses { get; set; }

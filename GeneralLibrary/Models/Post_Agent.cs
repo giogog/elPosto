@@ -17,9 +17,10 @@ public class Post_Agent
         get { return _personalId; }
         set
         {
-            _personalId = CheckNumerialsExtension.CheckNumerials(value);
+            _personalId = value.CheckNumerials();
         }
     }
-
+    public bool Human { get; set; }
+    public DistanceType[] distanceTypes { get; set; }
 
 }

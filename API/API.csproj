@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeneralLibrary\GeneralLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DapperLibrary">
       <HintPath>..\..\DataAccess\DapperLibrary\bin\Debug\net8.0\DapperLibrary.dll</HintPath>
     </Reference>
