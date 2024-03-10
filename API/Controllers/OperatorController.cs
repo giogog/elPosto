@@ -21,8 +21,8 @@ namespace API.Controllers
         [Route("add-package/{id}")]
         public async Task<ActionResult> AddPackage([FromQuery]int id)
         {
-
-            var result = await _access.LoadDataProcedure<User ,dynamic>("getUser",new { Id = id });
+            string sqlQuerry = "SELECT ID,NAME FROM USERS_ WHERE ID = @id";
+            var result = await _access.LoadDataProcedure<User ,dynamic>(sqlQuerry, new { ID = id });
 
             return Ok(result.FirstOrDefault());
         }
